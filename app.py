@@ -8,12 +8,11 @@ uri='mongodb+srv://karanmouryadmp:karan@cluster0.fzwllfy.mongodb.net/?retryWrite
 client=MongoClient(uri,tls=True,tlsAllowInvalidCertificates=True)
 
 app=Flask(__name__)
-CORS(app)
 
 mydatabase=client['flaskcrud']
 db=mydatabase['users']
 
-
+CORS(app)
 @app.route('/',methods=['GET'])
 def get():
     return jsonify({'msg':'Hello'})
