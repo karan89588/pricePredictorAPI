@@ -7,18 +7,18 @@ import pythonScript
 uri='mongodb+srv://karanmouryadmp:karan@cluster0.fzwllfy.mongodb.net/?retryWrites=true&w=majority'
 client=MongoClient(uri,tls=True,tlsAllowInvalidCertificates=True)
 
-app=Flask(__name__)
+appp=Flask(__name__)
 CORS(app)
 
 mydatabase=client['flaskcrud']
 db=mydatabase['users']
 
 
-@app.route('/',methods=['GET'])
+@appp.route('/',methods=['GET'])
 def get():
     return jsonify({'msg':'Hello'})
 
-@app.route('/users',methods=['GET'])
+@appp.route('/users',methods=['GET'])
 def getUsers():
     users=[]
     for doc in db.find():
@@ -32,7 +32,7 @@ def getUsers():
         })
         return jsonify(users)
 
-@app.route('/users',methods=['Put'])
+@appp.route('/users',methods=['Put'])
 def update():
     data=pythonScript.predictPrice(request.json['name'],request.json['season'],request.json['state'],request.json['availability'],request.json['demand'])
     db.update_one({'_id':ObjectId(request.json['id'])},{'$set':{
