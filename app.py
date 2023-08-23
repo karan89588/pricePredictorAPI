@@ -13,6 +13,11 @@ CORS(app)
 mydatabase=client['flaskcrud']
 db=mydatabase['users']
 
+
+@app.route('/',methods=['GET'])
+def get():
+    return jsonify({'msg':'Hello'})
+
 @app.route('/users',methods=['GET'])
 def getUsers():
     users=[]
