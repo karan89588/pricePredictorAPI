@@ -54,10 +54,14 @@ for it in data['Vegetable']:
         names.append(1)
     elif it=='Tomato':
         names.append(2)
+    elif it=='Lady_Finger':
+        names.append(3)
+    elif it=='Ginger':
+        names.append(4)
 
 states=[]
 for it in data['State']:
-    if it=='Agartala':
+    if it=='Delhi':
         states.append(0)
     elif it=='Dehradun':
         states.append(1)
@@ -87,6 +91,10 @@ data={
     'availability':availability,
     'demand':demand
 }
+
+print(data)
+
+print(labels)
 
 data2=pd.DataFrame(data)
 pickle.dump({'data':data2,'labels':labels},open('trainabledata.pickle','wb'))
